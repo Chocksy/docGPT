@@ -2,9 +2,11 @@ import os
 import openai
 import re
 from typing import List
+from dotenv import load_dotenv
 
-API_KEY = 'your_api_key_here'
-openai.api_key = API_KEY
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+load_dotenv(verbose=True, override=True)
 
 def get_python_files(dir_path: str) -> List[str]:
     python_files = []

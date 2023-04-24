@@ -1,0 +1,13 @@
+# To boot the app run the following:
+# docker-compose run docgpt
+version: "3.9"
+
+services:
+  docgpt:
+    build: ./
+    env_file:
+      - .env
+    volumes:
+      - "./:/home/appuser"
+      - ".env:/home/appuser/.env"
+    profiles: ["exclude-from-up"]
